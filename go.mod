@@ -1,6 +1,6 @@
 module github.com/nbs-go/natsq
 
-go 1.17
+go 1.20
 
 require (
 	github.com/google/uuid v1.6.0
@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/klauspost/compress v1.17.2 // indirect
+	github.com/klauspost/compress v1.17.8 // indirect
 	github.com/nats-io/nkeys v0.4.7 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	golang.org/x/crypto v0.22.0 // indirect
