@@ -10,7 +10,6 @@ import (
 	"github.com/nbs-go/nlogger/v2"
 	logContext "github.com/nbs-go/nlogger/v2/context"
 	logOption "github.com/nbs-go/nlogger/v2/option"
-	"net/http"
 	"runtime/debug"
 	"time"
 )
@@ -95,7 +94,7 @@ func (w *Worker) Publish(ctx context.Context, topic string, data any) (err error
 	ctx, pubId := NewPublishId(ctx)
 
 	// Set publishId to message Header
-	h := make(http.Header)
+	h := make(nats.Header)
 	h.Set(HeaderPublishId, pubId)
 
 	// Serialize data to json
@@ -108,7 +107,7 @@ func (w *Worker) Publish(ctx context.Context, topic string, data any) (err error
 	// Init message
 	msg := nats.Msg{
 		Subject: topic,
-		Header:  nats.Header(h),
+		Header:  h,
 		Data:    d,
 	}
 
